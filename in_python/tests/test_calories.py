@@ -6,7 +6,7 @@ from calories import get_calories_list, get_top_3
 
 def test_get_calories():
     dir_path = os.path.dirname(os.path.relpath(__file__))
-    input_file = os.path.join(dir_path, "test_data.txt")
+    input_file = os.path.join(dir_path, "test_calories_data.txt")
 
     calories = get_calories_list(input_file)
     expected_calories = [1, 6, 9, 1, 15, 4]
