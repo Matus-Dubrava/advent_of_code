@@ -5,7 +5,7 @@ from typing import List, Set
 
 from rock_paper_scissors_mappings import RPSMapping, OutcomeMapping, OPONENT_MOVES_MAPPING, \
     RESPONSE_MOVES_MAPPING, REVERSE_RESPONSE_MOVES_MAPPING, OUTCOME_MAPPING
-from helpers.validation import validate_file_input
+from helpers.validation import validate_file_input, handle_file_not_found
 
 
 def load_strategy_guide(file_path: str) -> Set[List[str]]:
@@ -23,8 +23,7 @@ def load_strategy_guide(file_path: str) -> Set[List[str]]:
 
         return (oponent_moves, responses)
     except FileNotFoundError as err:
-        print(f"Couldn't find specified file: {file_path}")
-        sys.exit(1)
+        handle_file_not_found(file_path)
 
 
 def get_shape_based_on_wanted_outcome(oponent_move: str, wanted_outcome: str) -> str:

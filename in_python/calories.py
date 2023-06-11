@@ -3,7 +3,7 @@ import sys
 
 from typing import List
 
-from helpers.validation import validate_file_input
+from helpers.validation import validate_file_input, handle_file_not_found
 
 
 def get_calories_list(input_file: str) -> List[int]:
@@ -21,8 +21,7 @@ def get_calories_list(input_file: str) -> List[int]:
 
         return total_calories_per_elf
     except FileNotFoundError as err:
-        print(f"Could not find specified file: {input_file}")
-        sys.exit(1)
+        handle_file_not_found(input_file)
 
 
 def get_top_3(calories: List[int]) -> List[int]:
