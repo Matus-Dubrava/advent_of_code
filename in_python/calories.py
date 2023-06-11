@@ -3,7 +3,7 @@ import sys
 
 from typing import List
 
-INPUT_FILE = "../../data/day_1_input_elf_calories.txts"
+from helpers.validation import validate_file_input
 
 
 def get_calories_list(input_file: str) -> List[int]:
@@ -41,9 +41,7 @@ def get_top_3(calories: List[int]) -> List[int]:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("missing required argument 'input file'")
-        sys.exit(1)
+    validate_file_input(sys.argv)
 
     input_file = sys.argv[1]
 
