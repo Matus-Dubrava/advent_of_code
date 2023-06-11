@@ -2,8 +2,10 @@ import os
 import sys
 
 from typing import List, Set
+
 from rock_paper_scissors_mappings import RPSMapping, OutcomeMapping, OPONENT_MOVES_MAPPING, \
     RESPONSE_MOVES_MAPPING, REVERSE_RESPONSE_MOVES_MAPPING, OUTCOME_MAPPING
+from helpers.validation import validate_file_input
 
 
 def load_strategy_guide(file_path: str) -> Set[List[str]]:
@@ -132,10 +134,7 @@ def compute_total_points(oponent_moves: List[str], responses: List[str]) -> int:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Missing required parameted: input file.")
-        sys.exit(1)
-
+    validate_file_input(sys.argv)
     file_path = sys.argv[1]
 
     # oponent_moves, responses = load_strategy_guide(file_path)
